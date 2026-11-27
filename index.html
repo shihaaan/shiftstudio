@@ -19,13 +19,19 @@ section{scroll-margin-top:84px}
 .gear{position:absolute;border-radius:50%;border:2px solid #5A5A60;background:#0B0B0C;color:#F2F0EB;font-family:'Big Shoulders Display',sans-serif;font-weight:900;cursor:pointer;transform:translate(-50%,-50%);transition:background .15s,color .15s,border-color .15s}
 .gear:hover{border-color:#F2F0EB}
 .gear[aria-pressed="true"]{background:var(--accent);color:#0B0B0C;border-color:var(--accent)}
-.gear:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 body{margin:0;background:#0B0B0C}
 a{color:#F2F0EB}a:hover{color:#FF5A1F}
 @keyframes rev{0%,8%{opacity:.14}20%,78%{opacity:1}92%,100%{opacity:.14}}
 .led{animation:rev 3.2s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.led{animation:none;opacity:1}}
 input,select,textarea{font:inherit}
+h1,h2,h3{overflow-wrap:break-word}
+.nav-mob summary::-webkit-details-marker{display:none}
+.nav-mob details[open] summary{background:#F2F0EB;color:#0B0B0C}.nav-mob details[open] summary path{stroke:#0B0B0C}
+@media (max-width:860px){.nav-desk{display:none!important}.nav-mob{display:flex!important}}
+@media (max-width:600px){.wrap{padding-left:20px!important;padding-right:20px!important}.sec{padding-top:72px!important;padding-bottom:72px!important}.card{padding:22px!important}}
+@media (max-width:440px){.tag-studio{display:none!important}.gbox{padding:28px 12px!important}}
 </style>
 </head>
 <body>
@@ -33,23 +39,36 @@ input,select,textarea{font:inherit}
 
 <!-- NAV -->
 <header style="position: sticky; top: 0; z-index: 5; background: rgba(11,11,12,0.92); border-bottom: 1px solid #26262A">
-<div style="max-width: 1360px; margin: 0 auto; padding: 18px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div class="wrap" style="max-width: 1360px; margin: 0 auto; padding: 14px 40px; display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #F2F0EB">
 <span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; line-height: 1">SHIFT</span>
-<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #9A9893; border: 1px solid #3A3A3F; padding: 4px 8px">STUDIO</span>
+<span class="tag-studio" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: #9A9893; border: 1px solid #3A3A3F; padding: 4px 8px">STUDIO</span>
 </a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">
+<nav class="nav-desk" aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">
 <a href="#gearbox" style="text-decoration: none">Services</a>
 <a href="#grid" style="text-decoration: none">Who we work with</a>
 <a href="#packages" style="text-decoration: none">Packages</a>
 <a href="#work" style="text-decoration: none">Founding clients</a>
 <a href="#contact" style="text-decoration: none; background: var(--accent); color: #0B0B0C; padding: 12px 18px; font-weight: 600">Start a project</a>
 </nav>
+<div class="nav-mob" style="display: none; align-items: center; gap: 10px">
+<a href="#contact" style="text-decoration: none; background: var(--accent); color: #0B0B0C; padding: 0 16px; min-height: 44px; display: flex; align-items: center; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">Enquire</a>
+<details>
+<summary aria-label="Menu" style="list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; padding: 0 14px; border: 1px solid #F2F0EB; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em">MENU <svg aria-hidden="true" width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="#F2F0EB" stroke-width="2"><path d="M0 1h18M0 7h18M0 13h18"></path></svg></summary>
+<nav aria-label="Mobile" style="position: absolute; left: 0; right: 0; top: 100%; background: #0B0B0C; border-bottom: 4px solid var(--accent); padding: 4px 20px 24px; display: flex; flex-direction: column">
+<a href="#gearbox" style="padding: 16px 0; border-bottom: 1px solid #26262A; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 34px; text-transform: uppercase; text-decoration: none">Services</a>
+<a href="#grid" style="padding: 16px 0; border-bottom: 1px solid #26262A; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 34px; text-transform: uppercase; text-decoration: none">Who we work with</a>
+<a href="#packages" style="padding: 16px 0; border-bottom: 1px solid #26262A; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 34px; text-transform: uppercase; text-decoration: none">Packages</a>
+<a href="#work" style="padding: 16px 0; border-bottom: 1px solid #26262A; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 34px; text-transform: uppercase; text-decoration: none">Founding clients</a>
+<a href="#contact" style="margin-top: 20px; text-align: center; background: var(--accent); color: #0B0B0C; padding: 18px; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none">Start a project &gt;</a>
+</nav>
+</details>
+</div>
 </div>
 </header>
 
 <!-- HERO -->
-<section id="top" style="max-width: 1360px; margin: 0 auto; padding: 56px 40px 72px">
+<section id="top" class="wrap" style="max-width: 1360px; margin: 0 auto; padding: 56px 40px 72px">
 <div aria-hidden="true" style="display: flex; gap: 6px; margin-bottom: 40px">
 <span class="led" style="flex: 1; height: 10px; background: #3DDC84; animation-delay: 0s"></span>
 <span class="led" style="flex: 1; height: 10px; background: #3DDC84; animation-delay: .08s"></span>
@@ -65,7 +84,7 @@ input,select,textarea{font:inherit}
 <span class="led" style="flex: 1; height: 10px; background: var(--accent); animation-delay: .88s"></span>
 </div>
 <p style="margin: 0 0 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase">Automotive creative and digital studio · Hamilton, Waikato</p>
-<h1 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(64px, 11vw, 176px); line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase">Driven by creativity.<br><span style="color: transparent; -webkit-text-stroke: 2px #F2F0EB">Built around</span> automotive.</h1>
+<h1 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(46px, 12.5vw, 176px); line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase">Driven by creativity.<br><span style="color: transparent; -webkit-text-stroke: 2px #F2F0EB">Built around</span> automotive.</h1>
 <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-end; margin-top: 48px">
 <p style="margin: 0; max-width: 560px; font-size: 21px; line-height: 1.5; color: #CFCDC8">We help automotive businesses bring their brands to life through photography, video and websites. One studio, one standard, from the workshop floor to the first click.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -83,13 +102,13 @@ input,select,textarea{font:inherit}
 
 <!-- DIAGNOSTIC -->
 <section style="background: #F2F0EB; color: #0B0B0C">
-<div style="max-width: 1360px; margin: 0 auto; padding: 96px 40px; display: flex; flex-wrap: wrap; gap: 56px">
-<div style="flex: 1 1 420px">
+<div class="wrap sec" style="max-width: 1360px; margin: 0 auto; padding: 96px 40px; display: flex; flex-wrap: wrap; gap: 56px">
+<div style="flex: 1 1 420px; min-width: 0">
 <p style="margin: 0 0 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase">Diagnostic scan</p>
-<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(48px, 6vw, 88px); line-height: 0.92; text-transform: uppercase">Top-shelf work. Bottom-shelf first impression?</h2>
+<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(40px, 6vw, 88px); line-height: 0.92; text-transform: uppercase">Top-shelf work. Bottom-shelf first impression?</h2>
 <p style="margin: 24px 0 0; font-size: 19px; line-height: 1.55; max-width: 480px; color: #3B3A37">Plenty of automotive businesses aren't short on skill. The gap is between the quality in the bay and how it shows up online. That gap is where customers decide.</p>
 </div>
-<div style="flex: 1 1 520px; background: #0B0B0C; color: #F2F0EB; font-family: 'JetBrains Mono', monospace; padding: 28px">
+<div class="card" style="flex: 1 1 520px; min-width: 0; background: #0B0B0C; color: #F2F0EB; font-family: 'JetBrains Mono', monospace; padding: 28px">
 <div style="display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 0.16em; color: #9A9893; border-bottom: 1px solid #26262A; padding-bottom: 14px"><span>FAULT CODES</span><span style="color: var(--accent)">5 FOUND</span></div>
 <div style="display: flex; flex-direction: column">
 <div style="display: flex; gap: 20px; padding: 16px 0; border-bottom: 1px solid #26262A; font-size: 15px; line-height: 1.45"><span style="color: var(--accent); flex: 0 0 52px">S-01</span><span>Excellent workmanship, inconsistent visual content</span></div>
@@ -104,20 +123,20 @@ input,select,textarea{font:inherit}
 </section>
 
 <!-- GEARBOX -->
-<section id="gearbox" style="max-width: 1360px; margin: 0 auto; padding: 112px 40px">
+<section id="gearbox" class="wrap sec" style="max-width: 1360px; margin: 0 auto; padding: 112px 40px">
 <p style="margin: 0 0 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase">Services · Select a gear</p>
-<h2 style="margin: 0 0 56px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(48px, 7vw, 104px); line-height: 0.9; text-transform: uppercase">Pick your gear.</h2>
+<h2 style="margin: 0 0 56px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(44px, 7vw, 104px); line-height: 0.9; text-transform: uppercase">Pick your gear.</h2>
 <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: stretch">
-<div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; background: #151517; border: 1px solid #26262A; padding: 40px">
-<div role="group" aria-label="Choose a service" style="position: relative; width: 300px; height: 320px">
-<div aria-hidden="true" style="position: absolute; left: 68px; top: 40px; width: 4px; height: 240px; background: #3A3A3F"></div>
-<div aria-hidden="true" style="position: absolute; left: 228px; top: 40px; width: 4px; height: 240px; background: #3A3A3F"></div>
-<div aria-hidden="true" style="position: absolute; left: 68px; top: 158px; width: 164px; height: 4px; background: #3A3A3F"></div>
-<button type="button" class="gear" data-gear="1" aria-pressed="true" aria-label="Gear 1: Creative Production" style="left: 70px; top: 40px; width: 72px; height: 72px; font-size: 34px">1</button>
-<button type="button" class="gear" data-gear="2" aria-pressed="false" aria-label="Gear 2: Web &amp; Digital Experiences" style="left: 70px; top: 280px; width: 72px; height: 72px; font-size: 34px">2</button>
-<button type="button" class="gear" data-gear="3" aria-pressed="false" aria-label="Gear 3: Digital Marketing" style="left: 230px; top: 40px; width: 72px; height: 72px; font-size: 34px">3</button>
-<button type="button" class="gear" data-gear="4" aria-pressed="false" aria-label="Gear 4: The Full Build" style="left: 230px; top: 280px; width: 72px; height: 72px; font-size: 34px">4</button>
-<button type="button" class="gear" data-gear="N" aria-pressed="false" aria-label="Gear N: Not sure yet?" style="left: 150px; top: 160px; width: 56px; height: 56px; font-size: 24px">N</button>
+<div class="gbox" style="flex: 1 1 340px; max-width: 420px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 20px; background: #151517; border: 1px solid #26262A; padding: 40px">
+<div role="group" aria-label="Choose a service" style="position: relative; width: 100%; max-width: 300px; height: 320px">
+<div aria-hidden="true" style="position: absolute; left: calc(23.33% - 2px); top: 40px; width: 4px; height: 240px; background: #3A3A3F"></div>
+<div aria-hidden="true" style="position: absolute; left: calc(76.67% - 2px); top: 40px; width: 4px; height: 240px; background: #3A3A3F"></div>
+<div aria-hidden="true" style="position: absolute; left: 23.33%; top: 158px; width: 53.34%; height: 4px; background: #3A3A3F"></div>
+<button type="button" class="gear" data-gear="1" aria-pressed="true" aria-label="Gear 1: Creative Production" style="left: 23.33%; top: 40px; width: 72px; height: 72px; font-size: 34px">1</button>
+<button type="button" class="gear" data-gear="2" aria-pressed="false" aria-label="Gear 2: Web &amp; Digital Experiences" style="left: 23.33%; top: 280px; width: 72px; height: 72px; font-size: 34px">2</button>
+<button type="button" class="gear" data-gear="3" aria-pressed="false" aria-label="Gear 3: Digital Marketing" style="left: 76.67%; top: 40px; width: 72px; height: 72px; font-size: 34px">3</button>
+<button type="button" class="gear" data-gear="4" aria-pressed="false" aria-label="Gear 4: The Full Build" style="left: 76.67%; top: 280px; width: 72px; height: 72px; font-size: 34px">4</button>
+<button type="button" class="gear" data-gear="N" aria-pressed="false" aria-label="Gear N: Not sure yet?" style="left: 50%; top: 160px; width: 56px; height: 56px; font-size: 24px">N</button>
 </div>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #9A9893">ENGAGED: <span id="g-engaged" style="color: var(--accent)">1</span></div>
 </div>
@@ -136,34 +155,34 @@ input,select,textarea{font:inherit}
 
 <!-- STARTING GRID -->
 <section id="grid" style="border-top: 1px solid #26262A; border-bottom: 1px solid #26262A; background: #111113">
-<div style="max-width: 1360px; margin: 0 auto; padding: 112px 40px">
+<div class="wrap sec" style="max-width: 1360px; margin: 0 auto; padding: 112px 40px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: flex-end; margin-bottom: 48px">
 <div>
 <p style="margin: 0 0 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase">Who we work with</p>
-<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(48px, 7vw, 104px); line-height: 0.9; text-transform: uppercase">The starting grid.</h2>
+<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(44px, 7vw, 104px); line-height: 0.9; text-transform: uppercase">The starting grid.</h2>
 </div>
 <p style="margin: 0; max-width: 420px; font-size: 17px; line-height: 1.55; color: #CFCDC8">Independent automotive businesses across Waikato with a strong reputation and a digital presence that hasn't caught up yet.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
-<div style="border: 1px solid #3A3A3F; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<div class="card" style="border: 1px solid #3A3A3F; padding: 28px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em"><span style="color: var(--accent)">01</span><span style="color: #9A9893">VISUAL WORK</span></div>
 <h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; text-transform: uppercase">Appearance specialists</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #9A9893">Detailing · Ceramic coating · PPF · Wraps · Window tint</p>
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #CFCDC8">Your work is visual. Before-and-after content and reels prove the finish.</p>
 </div>
-<div style="border: 1px solid #3A3A3F; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<div class="card" style="border: 1px solid #3A3A3F; padding: 28px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em"><span style="color: var(--accent)">02</span><span style="color: #9A9893">BUILDS</span></div>
 <h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; text-transform: uppercase">Performance &amp; specialist workshops</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #9A9893">Tuning · Modification · Fabrication · Restoration · Specialist mechanical</p>
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #CFCDC8">Builds deserve documenting. Project stories and portfolio-style sites.</p>
 </div>
-<div style="border: 1px solid #3A3A3F; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<div class="card" style="border: 1px solid #3A3A3F; padding: 28px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em"><span style="color: var(--accent)">03</span><span style="color: #9A9893">PRODUCTS</span></div>
 <h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; text-transform: uppercase">Automotive retailers</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #9A9893">Tyres · Wheels · Parts · Accessories · Independent dealers</p>
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #CFCDC8">Product photography, campaigns and websites that make browsing easy.</p>
 </div>
-<div style="border: 1px solid #3A3A3F; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<div class="card" style="border: 1px solid #3A3A3F; padding: 28px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em"><span style="color: var(--accent)">04</span><span style="color: #9A9893">CULTURE</span></div>
 <h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; text-transform: uppercase">Clubs, events &amp; creators</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #9A9893">Car clubs · Motorsport organisers · Event organisers · Independent mechanics · Content creators</p>
@@ -181,43 +200,43 @@ input,select,textarea{font:inherit}
 </section>
 
 <!-- PACKAGES -->
-<section id="packages" style="max-width: 1360px; margin: 0 auto; padding: 112px 40px">
+<section id="packages" class="wrap sec" style="max-width: 1360px; margin: 0 auto; padding: 112px 40px">
 <p style="margin: 0 0 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase">Packages</p>
-<h2 style="margin: 0 0 16px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(48px, 7vw, 104px); line-height: 0.9; text-transform: uppercase">Build sheets.</h2>
+<h2 style="margin: 0 0 16px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(44px, 7vw, 104px); line-height: 0.9; text-transform: uppercase">Build sheets.</h2>
 <p style="margin: 0 0 48px; max-width: 560px; font-size: 17px; line-height: 1.55; color: #CFCDC8">Priced around outcomes, not hours. Every project is quoted to your brief before anything starts.</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
 <article style="background: #F2F0EB; color: #0B0B0C; display: flex; flex-direction: column">
 <div style="display: flex; justify-content: space-between; padding: 18px 24px; border-bottom: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em"><span>SHEET 01</span><span>ONE-OFF</span></div>
 <div style="padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; flex: 1">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 44px; line-height: 0.95; text-transform: uppercase">Content Session</h3>
+<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(34px, 9vw, 44px); line-height: 0.95; text-transform: uppercase">Content Session</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3B3A37">A planned photo and video shoot for businesses that need fresh, professional content now.</p>
 <ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.4; display: flex; flex-direction: column; gap: 10px">
 <li>+ Planned photo and video session</li><li>+ Edited selection of photographs</li><li>+ Set number of short-form videos</li><li>+ Social-ready content files</li>
 </ul>
 </div>
-<div style="padding: 20px 24px; border-top: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace"><div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span style="font-size: 11px; letter-spacing: 0.16em">QUOTED TO YOUR BRIEF</span><a href="#contact" style="color: #0B0B0C; font-size: 18px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 0">Enquire &gt;</a></div></div>
+<div style="padding: 20px 24px; border-top: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 12px"><span style="font-size: 11px; letter-spacing: 0.16em">QUOTED TO YOUR BRIEF</span><a href="#contact" style="white-space: nowrap; color: #0B0B0C; font-size: 18px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 0">Enquire &gt;</a></div></div>
 </article>
 <article style="background: var(--accent); color: #0B0B0C; display: flex; flex-direction: column">
 <div style="display: flex; justify-content: space-between; padding: 18px 24px; border-bottom: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em"><span>SHEET 02</span><span>MONTHLY</span></div>
 <div style="padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; flex: 1">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 44px; line-height: 0.95; text-transform: uppercase">Creative Partnership</h3>
+<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(34px, 9vw, 44px); line-height: 0.95; text-transform: uppercase">Creative Partnership</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.5">Consistent content every month, planned and delivered, so your feed never goes quiet.</p>
 <ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.4; display: flex; flex-direction: column; gap: 10px">
 <li>+ Scheduled monthly content sessions</li><li>+ Photography and videography</li><li>+ Set number of reels or short videos</li><li>+ Content planning and delivery</li><li>+ Optional social publishing</li>
 </ul>
 </div>
-<div style="padding: 20px 24px; border-top: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace"><div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span style="font-size: 11px; letter-spacing: 0.16em">QUOTED TO YOUR BRIEF</span><a href="#contact" style="color: #0B0B0C; font-size: 18px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 0">Enquire &gt;</a></div></div>
+<div style="padding: 20px 24px; border-top: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 12px"><span style="font-size: 11px; letter-spacing: 0.16em">QUOTED TO YOUR BRIEF</span><a href="#contact" style="white-space: nowrap; color: #0B0B0C; font-size: 18px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 0">Enquire &gt;</a></div></div>
 </article>
 <article style="background: #F2F0EB; color: #0B0B0C; display: flex; flex-direction: column">
 <div style="display: flex; justify-content: space-between; padding: 18px 24px; border-bottom: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em"><span>SHEET 03</span><span>FIXED SCOPE</span></div>
 <div style="padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; flex: 1">
-<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 44px; line-height: 0.95; text-transform: uppercase">Digital Experience</h3>
+<h3 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(34px, 9vw, 44px); line-height: 0.95; text-transform: uppercase">Digital Experience</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #3B3A37">A website designed around how your customers decide, enquire and book.</p>
 <ul style="margin: 0; padding: 0; list-style: none; font-size: 15px; line-height: 1.4; display: flex; flex-direction: column; gap: 10px">
 <li>+ Discovery and requirements</li><li>+ Structure and UX planning</li><li>+ Design and development</li><li>+ Photo and video assets where needed</li><li>+ Enquiry journey improvements</li><li>+ Handover and optional support</li>
 </ul>
 </div>
-<div style="padding: 20px 24px; border-top: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace"><div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span style="font-size: 11px; letter-spacing: 0.16em">QUOTED TO YOUR BRIEF</span><a href="#contact" style="color: #0B0B0C; font-size: 18px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 0">Enquire &gt;</a></div></div>
+<div style="padding: 20px 24px; border-top: 2px solid #0B0B0C; font-family: 'JetBrains Mono', monospace"><div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 12px"><span style="font-size: 11px; letter-spacing: 0.16em">QUOTED TO YOUR BRIEF</span><a href="#contact" style="white-space: nowrap; color: #0B0B0C; font-size: 18px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 0">Enquire &gt;</a></div></div>
 </article>
 </div>
 <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px 32px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.06em; color: #9A9893">
@@ -231,9 +250,9 @@ input,select,textarea{font:inherit}
 
 <!-- STUDIO EQUATION -->
 <section style="background: var(--accent); color: #0B0B0C">
-<div style="max-width: 1360px; margin: 0 auto; padding: 88px 40px">
+<div class="wrap sec" style="max-width: 1360px; margin: 0 auto; padding: 88px 40px">
 <p style="margin: 0 0 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase">Why SHIFT</p>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(40px, 6vw, 92px); line-height: 0.95; text-transform: uppercase">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(34px, 6vw, 92px); line-height: 0.95; text-transform: uppercase">
 <span>Automotive know-how</span><span aria-hidden="true">+</span><span>Creative production</span><span aria-hidden="true">+</span><span>Digital design</span>
 </div>
 <p style="margin: 32px 0 0; max-width: 720px; font-size: 20px; line-height: 1.5">Not a photographer. Not a web agency. Not a marketing firm. One studio that speaks car, shoots like it means it, and designs websites with real UX thinking behind them.</p>
@@ -241,12 +260,12 @@ input,select,textarea{font:inherit}
 </section>
 
 <!-- WORK -->
-<section id="work" style="max-width: 1360px; margin: 0 auto; padding: 112px 40px">
+<section id="work" class="wrap sec" style="max-width: 1360px; margin: 0 auto; padding: 112px 40px">
 <p style="margin: 0 0 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase">Founding clients</p>
-<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(48px, 7vw, 104px); line-height: 0.9; text-transform: uppercase">Pole position is open.</h2>
+<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(44px, 7vw, 104px); line-height: 0.9; text-transform: uppercase">Pole position is open.</h2>
 <p style="margin: 24px 0 56px; max-width: 640px; font-size: 19px; line-height: 1.55; color: #CFCDC8">SHIFT is new and our first projects are about to roll out of the garage. We're looking for a small number of founding clients across Waikato to build them with.</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
-<div style="border-top: 4px solid var(--accent); background: #151517; padding: 32px">
+<div style="border-top: 4px solid var(--accent); background: #151517; padding: 32px" class="card">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #9A9893; margin-bottom: 20px">WHAT YOU GET</div>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.45">
 <li><span style="color: var(--accent); font-family: 'JetBrains Mono', monospace">&gt;</span> A direct line to the people doing the work</li>
@@ -254,7 +273,7 @@ input,select,textarea{font:inherit}
 <li><span style="color: var(--accent); font-family: 'JetBrains Mono', monospace">&gt;</span> A say in how our services are shaped</li>
 </ul>
 </div>
-<div style="border-top: 4px solid #F2F0EB; background: #151517; padding: 32px">
+<div style="border-top: 4px solid #F2F0EB; background: #151517; padding: 32px" class="card">
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #9A9893; margin-bottom: 20px">WHAT WE ASK</div>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.45">
 <li><span style="font-family: 'JetBrains Mono', monospace">&gt;</span> Permission to feature the work</li>
@@ -263,7 +282,7 @@ input,select,textarea{font:inherit}
 </ul>
 </div>
 <div style="background: var(--accent); color: #0B0B0C; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px">
-<div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 44px; line-height: 0.95; text-transform: uppercase">Your build could be our first feature.</div>
+<div style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(34px, 9vw, 44px); line-height: 0.95; text-transform: uppercase">Your build could be our first feature.</div>
 <a href="#contact" style="color: #0B0B0C; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; border: 2px solid #0B0B0C; padding: 16px 20px; text-align: center; text-decoration: none">Claim a founding spot &gt;</a>
 </div>
 </div>
@@ -271,19 +290,19 @@ input,select,textarea{font:inherit}
 
 <!-- CONTACT -->
 <section id="contact" style="border-top: 1px solid #26262A; background: #111113">
-<div style="max-width: 1360px; margin: 0 auto; padding: 112px 40px; display: flex; flex-wrap: wrap; gap: 64px">
-<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 28px">
+<div class="wrap sec" style="max-width: 1360px; margin: 0 auto; padding: 112px 40px; display: flex; flex-wrap: wrap; gap: 64px">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
 <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase">Start a project</p>
 <h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(56px, 8vw, 128px); line-height: 0.86; text-transform: uppercase">Ready to shift up?</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.55; color: #CFCDC8; max-width: 460px">Automotive or otherwise, tell us about your business and what you need. We'll come back with a clear scope and quote.</p>
 <div style="display: flex; flex-direction: column; gap: 14px; font-family: 'JetBrains Mono', monospace; font-size: 15px">
-<div><span style="color: #9A9893; display: inline-block; width: 110px">EMAIL</span><a href="mailto:hello@shiftstudio.co.nz">hello@shiftstudio.co.nz</a></div>
-<div><span style="color: #9A9893; display: inline-block; width: 110px">SOCIAL</span>@shiftstudio.nz on <a href="https://www.instagram.com/shiftstudio.nz">Instagram</a> · <a href="https://www.facebook.com/shiftstudio.nz">Facebook</a></div>
-<div><span style="color: #9A9893; display: inline-block; width: 110px">ON LOCATION</span>Hamilton · Cambridge · Te Awamutu · Morrinsville</div>
-<div><span style="color: #9A9893; display: inline-block; width: 110px">REMOTE</span>Web projects anywhere in NZ</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 16px"><span style="color: #9A9893; flex: 0 0 120px">EMAIL</span><span style="flex: 1 1 200px; min-width: 0"><a href="mailto:hello@shiftstudio.co.nz">hello@shiftstudio.co.nz</a></span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 16px"><span style="color: #9A9893; flex: 0 0 120px">SOCIAL</span><span style="flex: 1 1 200px; min-width: 0">@shiftstudio.nz on <a href="https://www.instagram.com/shiftstudio.nz">Instagram</a> · <a href="https://www.facebook.com/shiftstudio.nz">Facebook</a></span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 16px"><span style="color: #9A9893; flex: 0 0 120px">ON LOCATION</span><span style="flex: 1 1 200px; min-width: 0">Hamilton · Cambridge · Te Awamutu · Morrinsville</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 16px"><span style="color: #9A9893; flex: 0 0 120px">REMOTE</span><span style="flex: 1 1 200px; min-width: 0">Web projects anywhere in NZ</span></div>
 </div>
 </div>
-<form id="enquiry" style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; background: #0B0B0C; border: 1px solid #26262A; padding: 32px">
+<form id="enquiry" class="card" style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; background: #0B0B0C; border: 1px solid #26262A; padding: 32px">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
 <div style="display: flex; flex-direction: column; gap: 8px"><label for="f-name" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #9A9893">YOUR NAME</label><input id="f-name" name="name" required type="text" style="background: #151517; border: 1px solid #3A3A3F; color: #F2F0EB; padding: 14px; font-size: 16px"></div>
 <div style="display: flex; flex-direction: column; gap: 8px"><label for="f-biz" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #9A9893">BUSINESS</label><input id="f-biz" name="business" type="text" style="background: #151517; border: 1px solid #3A3A3F; color: #F2F0EB; padding: 14px; font-size: 16px"></div>
@@ -299,7 +318,7 @@ input,select,textarea{font:inherit}
 
 <!-- FOOTER -->
 <footer style="border-top: 1px solid #26262A">
-<div style="max-width: 1360px; margin: 0 auto; padding: 48px 40px 28px">
+<div class="wrap" style="max-width: 1360px; margin: 0 auto; padding: 48px 40px 28px">
 <div aria-hidden="true" style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: clamp(96px, 22vw, 320px); line-height: 0.8; letter-spacing: -0.01em; color: #1C1C1F">SHIFT</div>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 28px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #9A9893">
 <span>SHIFT STUDIO · HAMILTON, WAIKATO, AOTEAROA NEW ZEALAND</span>
@@ -312,7 +331,7 @@ input,select,textarea{font:inherit}
 </div>
 <script>
 (function(){
-const DATA = {
+var DATA = {
       '1': { label: '1', name: 'Creative Production', status: 'AVAILABLE NOW', live: true, desc: 'Photography and video that shows the quality of your work the way customers see it in person. Planned properly, shot by someone who knows cars.', items: ['Vehicle and automotive photography', 'Workshop and team photography', 'Promo videos and walkarounds', 'Short-form reels for social', 'Project and build documentation', 'Brand storytelling content', 'Car meets, events and motorsport'] },
       '2': { label: '2', name: 'Web & Digital Experiences', status: 'AVAILABLE NOW', live: true, desc: 'Websites built on real UX thinking, designed around how your customers decide, enquire and book. Fast, clear and easy to look after.', items: ['Small business websites', 'Website redesigns', 'Landing pages', 'UX and usability improvements', 'Structure and navigation', 'Enquiry forms and customer journeys', 'Maintenance and support'] },
       '3': { label: '3', name: 'Digital Marketing', status: 'COMING LATER', live: false, desc: "Social strategy and campaigns, added once we can deliver them to the same standard. We'd rather do fewer things properly.", items: ['Social media strategy and management', 'Content planning and calendars', 'Campaign development', 'Brand storytelling and copywriting', 'Performance and engagement reporting'] },
@@ -320,7 +339,7 @@ const DATA = {
       'N': { label: 'N', name: 'Not sure yet?', status: 'NEUTRAL', live: true, desc: "Tell us about your business and where it's at. We'll suggest the right gear, honestly, even if that's a smaller job.", items: ['A quick chat about your goals', 'A look at your current website and social', 'A clear recommendation and scope'] }
     };
     
-  var tpl=function(t){var d=document.createElement('div');d.style.cssText='background:#0B0B0C;padding:18px 20px;display:flex;gap:14px;font-size:16px;line-height:1.4';var a=document.createElement('span');a.style.cssText="font-family:'JetBrains Mono',monospace;color:var(--accent)";a.textContent='>';var b=document.createElement('span');b.textContent=t;d.appendChild(a);d.appendChild(b);return d;};
+  function row(t){var d=document.createElement('div');d.style.cssText='background:#0B0B0C;padding:18px 20px;display:flex;gap:14px;font-size:16px;line-height:1.4';var a=document.createElement('span');a.style.cssText="font-family:'JetBrains Mono',monospace;color:var(--accent)";a.textContent='>';var b=document.createElement('span');b.textContent=t;d.appendChild(a);d.appendChild(b);return d;}
   function shift(id){
     var c=DATA[id];
     document.querySelectorAll('.gear').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.gear===id?'true':'false');});
@@ -329,10 +348,14 @@ const DATA = {
     var st=document.getElementById('g-status');st.textContent=c.status;var col=c.live?'#3DDC84':'#FFC21A';st.style.color=col;st.style.borderColor=col;
     document.getElementById('g-name').textContent=c.name;
     document.getElementById('g-desc').textContent=c.desc;
-    var box=document.getElementById('g-items');box.innerHTML='';c.items.forEach(function(t){box.appendChild(tpl(t));});
+    var box=document.getElementById('g-items');box.innerHTML='';c.items.forEach(function(t){box.appendChild(row(t));});
   }
   document.querySelectorAll('.gear').forEach(function(b){b.addEventListener('click',function(){shift(b.dataset.gear);});});
   shift('1');
+  // Mobile menu: close after choosing a link, or tapping outside
+  var menu=document.querySelector('.nav-mob details');
+  if(menu){menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.open=false;});});
+    document.addEventListener('click',function(e){if(menu.open&&!menu.contains(e.target))menu.open=false;});}
   // Enquiry form: opens the visitor's email app with the details filled in
   document.getElementById('enquiry').addEventListener('submit',function(e){
     e.preventDefault();var f=e.target;
