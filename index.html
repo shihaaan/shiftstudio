@@ -48,7 +48,7 @@ h1,h2,h3{overflow-wrap:break-word}
 </style>
 </head>
 <body>
-<div style="background: #0B0B0C; color: #F2F0EB; font-family: 'Archivo', system-ui, sans-serif; min-height: 100vh; overflow: hidden">
+<div style="background: #0B0B0C; color: #F2F0EB; font-family: 'Archivo', system-ui, sans-serif; min-height: 100vh; overflow-x: clip">
 
 <!-- NAV -->
 <header style="position: sticky; top: 0; z-index: 5; background: rgba(11,11,12,0.92); border-bottom: 1px solid #26262A">
@@ -154,7 +154,7 @@ h1,h2,h3{overflow-wrap:break-word}
 </div>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #9A9893">ENGAGED: <span id="g-engaged" style="color: var(--accent)">1</span></div>
 </div>
-<div style="flex: 1 1 480px; min-width: 0; border-top: 4px solid var(--accent); padding-top: 28px">
+<div id="g-panel" style="flex: 1 1 480px; min-width: 0; border-top: 4px solid var(--accent); padding-top: 28px; scroll-margin-top: 84px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: baseline">
 <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.16em; color: #9A9893">GEAR <span id="g-label">1</span></span>
 <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; padding: 6px 10px; border: 1px solid #3DDC84; color: #3DDC84" id="g-status">AVAILABLE NOW</span>
@@ -375,7 +375,12 @@ var DATA = {
     document.getElementById('g-desc').textContent=c.desc;
     var box=document.getElementById('g-items');box.innerHTML='';c.items.forEach(function(t){box.appendChild(row(t));});
   }
-  document.querySelectorAll('.gear').forEach(function(b){b.addEventListener('click',function(){shift(b.dataset.gear);});});
+  document.querySelectorAll('.gear').forEach(function(b){b.addEventListener('click',function(){
+    shift(b.dataset.gear);
+    // On phones the details sit below the shifter: bring them into view
+    var panel=document.getElementById('g-panel'),box=b.parentNode;
+    if(panel.getBoundingClientRect().top>=box.getBoundingClientRect().bottom-1){panel.scrollIntoView({behavior:'smooth',block:'start'});}
+  });});
   shift('1');
   // In-page links: scroll smoothly without adding #section to the address bar
   document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
